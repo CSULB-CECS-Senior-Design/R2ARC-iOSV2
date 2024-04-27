@@ -19,6 +19,8 @@
 		EFAF72CD2BC33BFD008A8A07 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF72CC2BC33BFD008A8A07 /* MenuScreen.swift */; };
 		EFAF72D12BC350CB008A8A07 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF72D02BC350CB008A8A07 /* BLEManager.swift */; };
 		EFAF72E42BC35AEB008A8A07 /* BlueTooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAF72E32BC35AEB008A8A07 /* BlueTooth.swift */; };
+		EFC013C72BC5F654003EC40E /* ModeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC013C62BC5F654003EC40E /* ModeTypeView.swift */; };
+		EFC013C92BCC68A2003EC40E /* SettingsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC013C82BCC68A2003EC40E /* SettingsUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		EFAF72D02BC350CB008A8A07 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		EFAF72E32BC35AEB008A8A07 /* BlueTooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueTooth.swift; sourceTree = "<group>"; };
 		EFAF72E62BC3612E008A8A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.4.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EFC013C62BC5F654003EC40E /* ModeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeTypeView.swift; sourceTree = "<group>"; };
+		EFC013C82BCC68A2003EC40E /* SettingsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 				EFAF72C82BC33B3D008A8A07 /* WelcomeScreen.swift */,
 				EFAF72CA2BC33BEA008A8A07 /* SigninScreen.swift */,
 				EFAF72CC2BC33BFD008A8A07 /* MenuScreen.swift */,
+				EFC013C62BC5F654003EC40E /* ModeTypeView.swift */,
+				EFC013C82BCC68A2003EC40E /* SettingsUI.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC013C92BCC68A2003EC40E /* SettingsUI.swift in Sources */,
 				EFAF72CD2BC33BFD008A8A07 /* MenuScreen.swift in Sources */,
 				EFAF72D12BC350CB008A8A07 /* BLEManager.swift in Sources */,
 				EFAF72E42BC35AEB008A8A07 /* BlueTooth.swift in Sources */,
@@ -299,6 +306,7 @@
 				EFAF72CB2BC33BEA008A8A07 /* SigninScreen.swift in Sources */,
 				EF8B25482BC331B200E82B95 /* ContentView.swift in Sources */,
 				EF8B25462BC331B200E82B95 /* R2ARCApp.swift in Sources */,
+				EFC013C72BC5F654003EC40E /* ModeTypeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +472,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow usage for bluetooth";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow for Bluetooth Use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -473,7 +483,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -505,6 +514,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow usage for bluetooth";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow for Bluetooth Use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -514,7 +525,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
