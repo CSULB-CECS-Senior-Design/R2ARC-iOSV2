@@ -12,7 +12,6 @@ struct WelcomeScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color("BgColor").edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
                     // Use a standard Image initializer with the asset's name

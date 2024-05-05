@@ -54,8 +54,8 @@ struct MenuButton: View {
             }
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color.blue)
-            .foregroundColor(.white)
+            .background(Color.yellow)
+            .foregroundColor(.black)
             .cornerRadius(10)
             .padding(.horizontal)
         } else {
