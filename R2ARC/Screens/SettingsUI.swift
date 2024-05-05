@@ -36,17 +36,26 @@ struct VersionInfoView: View {
 
 struct AboutUsView: View {
     var body: some View {
-        Text("We are Awesome App Inc., dedicated to making your life easier.")
-            .navigationBarTitle("About Us", displayMode: .inline)
+        HStack {
+            Spacer() // Adds a spacer on the left
+            Text("We are Team 7, our project was produced by Kevin Martinez, Grecia Francisco, Michelle Tran, Jesus Perez, and Shane Lobsinger")
+            Spacer() // Adds a spacer on the right
+        }
+        .navigationBarTitle("About Us", displayMode: .inline)
     }
 }
 
 struct LegalView: View {
     var body: some View {
-        Text("All rights reserved. Your use of this service is subject to our Terms and Conditions.")
-            .navigationBarTitle("Legal", displayMode: .inline)
+        HStack {
+            Spacer() // Adds a spacer on the left
+            Text("This product is provided under the terms of this Non-Commercial Use License. The product is licensed only for personal, non-commercial use. Commerical use refers to any operation or activity where the primary intent is to generate revenue or business benefits. The user agrees not to use this product for any commercial purposes without prior written consent from Team 7 R2-ARC. Any unauthorized commercial use of this product will result in termination of this license and may subject the user to legal action.")
+            Spacer() // Adds a spacer on the right
+        }
+        .navigationBarTitle("Legal", displayMode: .inline)
     }
 }
+
 
 
 

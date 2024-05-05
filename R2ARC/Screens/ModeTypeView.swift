@@ -47,8 +47,8 @@ struct ModeTypeView: View {
         Text(text)
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color.blue)
-            .foregroundColor(.white)
+            .background(Color.yellow)
+            .foregroundColor(.black)
             .cornerRadius(10)
     }
 }
@@ -62,8 +62,8 @@ struct PrimaryButtonStyle: ButtonStyle {
         configuration.label
             .padding()
             .frame(maxWidth: .infinity)
-            .background(isConnected ? Color.green : Color.green.opacity(0.5))
-            .foregroundColor(.white)
+            .background(isConnected ? Color.white : Color.white.opacity(0.5))
+            .foregroundColor(.black)
             .cornerRadius(10)
             .disabled(!isConnected)
     }

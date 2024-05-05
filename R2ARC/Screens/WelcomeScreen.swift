@@ -27,7 +27,7 @@ struct WelcomeScreen: View {
                     .padding(.vertical)
                     
                     HStack {
-                        Text("Welcome to project R2ARC")
+                        Text("                      Welcome to R2ARC!")
                         Spacer()
                     }
                 }
