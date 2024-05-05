@@ -26,8 +26,8 @@ struct MenuScreen: View {
                 MenuButton(title: "R2Arc Control", iconName: "antenna.radiowaves.left.and.right")
             }
             // Emergency Services Button
-            NavigationLink(destination: EmergencyServicesView()) {
-                MenuButton(title: "Emergency Services", iconName: "exclamationmark.triangle")
+            NavigationLink(destination: EmergencyContactView()) {
+                MenuButton(title: "Emergency Contacts", iconName: "exclamationmark.triangle")
             }
             // User Information Button
             NavigationLink(destination: UserInformationView()) {
@@ -99,45 +99,154 @@ struct R2ArcControlView: View {
     
 }
 
-struct EmergencyServicesView: View {
-    var body: some View {
-        Text("Emergency Contacts")
-    }
-}
+struct EmergencyContactView: View {
+    @State private var relationship: String = UserDefaults.standard.string(forKey: "emergencyRelationship") ?? ""
+    @State private var cellPhone: String = UserDefaults.standard.string(forKey: "emergencyCellPhone") ?? ""
+    @State private var homePhone: String = UserDefaults.standard.string(forKey: "emergencyHomePhone") ?? ""
+    @State private var workPhone: String = UserDefaults.standard.string(forKey: "emergencyWorkPhone") ?? ""
+    @State private var address: String = UserDefaults.standard.string(forKey: "emergencyAddress") ?? ""
 
-struct UserInformationView: View {
-    @State private var userName: String = "Darth Vader"
-    @State private var userEmail: String = "not_anakinskywalker@gmail.com"
-    let profileImage: Image = Image("ProfilePic") // Updated to use a more generic asset name
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            profileImage
-                .resizable()
-                .scaledToFit()
-                .frame(width: 150, height: 150)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.gray, lineWidth: 4))
-            
-            Text("User Information")
+            Text("Emergency Contact Information")
                 .font(.title)
                 .fontWeight(.bold)
             
             HStack {
-                Text("Name: ")
+                Text("Relationship: ")
                     .fontWeight(.semibold)
-                Text(userName)
+                TextField("Enter relationship", text: $relationship)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
             }
-            
+
             HStack {
-                Text("Email: ")
+                Text("Cell Phone: ")
                     .fontWeight(.semibold)
-                Text(userEmail)
+                TextField("Enter cell phone number", text: $cellPhone)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.phonePad)
+            }
+
+            HStack {
+                Text("Home Phone: ")
+                    .fontWeight(.semibold)
+                TextField("Enter home phone number", text: $homePhone)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.phonePad)
+            }
+
+            HStack {
+                Text("Work Phone: ")
+                    .fontWeight(.semibold)
+                TextField("Enter work phone number", text: $workPhone)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.phonePad)
+            }
+
+            HStack {
+                Text("Address: ")
+                    .fontWeight(.semibold)
+                TextField("Enter address", text: $address)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+
+            Button(action: saveEmergencyContactData) {
+                Text("Save Emergency Contact")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
+                    .background(Color.yellow)
+                    .cornerRadius(10)
             }
         }
         .padding()
     }
+
+    private func saveEmergencyContactData() {
+        UserDefaults.standard.set(relationship, forKey: "emergencyRelationship")
+        UserDefaults.standard.set(cellPhone, forKey: "emergencyCellPhone")
+        UserDefaults.standard.set(homePhone, forKey: "emergencyHomePhone")
+        UserDefaults.standard.set(workPhone, forKey: "emergencyWorkPhone")
+        UserDefaults.standard.set(address, forKey: "emergencyAddress")
+        print("Emergency contact data saved successfully")
+    }
 }
+
+
+struct UserInformationView: View {
+    @State private var userName: String = UserDefaults.standard.string(forKey: "userName") ?? ""
+    @State private var userEmail: String = UserDefaults.standard.string(forKey: "userEmail") ?? ""
+    @State private var userPhone: String = UserDefaults.standard.string(forKey: "userPhone") ?? ""
+    @State private var userAddress: String = UserDefaults.standard.string(forKey: "userAddress") ?? ""
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("User Information")
+                .font(.title)
+                .fontWeight(.bold)
+            
+            // Name input field
+            HStack {
+                Text("Name: ")
+                    .fontWeight(.semibold)
+                TextField("Enter your name", text: $userName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.words)
+            }
+            
+            // Email input field
+            HStack {
+                Text("Email: ")
+                    .fontWeight(.semibold)
+                TextField("Enter your email", text: $userEmail)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+            }
+            
+            // Phone input field
+            HStack {
+                Text("Phone: ")
+                    .fontWeight(.semibold)
+                TextField("Enter your phone number", text: $userPhone)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.phonePad)
+            }
+            
+            // Address input field
+            HStack {
+                Text("Address: ")
+                    .fontWeight(.semibold)
+                TextField("Enter your home address", text: $userAddress)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+
+            // Save button
+            Button(action: saveUserData) {
+                Text("Save Information")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
+                    .background(Color.yellow)
+                    .cornerRadius(10)
+            }
+        }
+        .padding()
+    }
+
+    private func saveUserData() {
+        UserDefaults.standard.set(userName, forKey: "userName")
+        UserDefaults.standard.set(userEmail, forKey: "userEmail")
+        UserDefaults.standard.set(userPhone, forKey: "userPhone")
+        UserDefaults.standard.set(userAddress, forKey: "userAddress")
+        print("Data saved successfully")
+    }
+}
+
+
+
+
+
 
 struct MenuScreen_Previews: PreviewProvider {
     static var previews: some View {
